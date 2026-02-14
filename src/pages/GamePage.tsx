@@ -31,7 +31,7 @@ const GamePage: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
       <NewYearBackground />
 
-      <div className="w-full max-w-4xl flex flex-col items-center gap-6">
+      <div className="w-full max-w-[1100px] flex flex-col items-center gap-6">
         {/* Header Controls */}
         <div className="w-full flex justify-between items-center bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-yellow-500/30">
           <button
