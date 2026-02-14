@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Trophy, Star } from 'lucide-react';
+import { ArrowLeft, Trophy, Star, Volume2, VolumeX } from 'lucide-react';
 import GameCanvas from '../components/GameCanvas';
 import NewYearBackground from '../components/NewYearBackground';
 import { useGameStore } from '../store/useGameStore';
@@ -8,7 +8,7 @@ import { useGameStore } from '../store/useGameStore';
 const GamePage: React.FC = () => {
   const navigate = useNavigate();
   const [currentScore, setCurrentScore] = useState(0);
-  const { highScore, playerName } = useGameStore();
+  const { highScore, playerName, isMusicEnabled, toggleMusic } = useGameStore();
 
   const getHeadEmoji = () => {
     switch (playerName) {
@@ -31,7 +31,7 @@ const GamePage: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
       <NewYearBackground />
 
-      <div className="w-full max-w-[1100px] flex flex-col items-center gap-6">
+      <div className="w-full max-w-[1300px] flex flex-col items-center gap-6">
         {/* Header Controls */}
         <div className="w-full flex justify-between items-center bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-yellow-500/30">
           <button
@@ -43,6 +43,13 @@ const GamePage: React.FC = () => {
           </button>
 
           <div className="flex items-center space-x-8">
+            <button
+              onClick={toggleMusic}
+              className="p-2 rounded-full hover:bg-white/10 transition-colors text-yellow-400"
+              title={isMusicEnabled ? '关闭音乐' : '开启音乐'}
+            >
+              {isMusicEnabled ? <Volume2 size={24} /> : <VolumeX size={24} />}
+            </button>
             <div className="flex items-center space-x-2">
               <Star className="text-yellow-400 fill-yellow-400" />
               <span className="text-white text-xl font-bold">分数: {currentScore}</span>
