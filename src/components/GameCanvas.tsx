@@ -459,17 +459,14 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ onGameOver, onScoreUpdate }) =>
 
     // Decorations
     ctx.save();
-    ctx.fillStyle = 'rgba(255, 215, 0, 0.05)';
+    ctx.fillStyle = 'rgba(255, 215, 0, 0.03)';
     ctx.font = '200px serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText('福', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-    ctx.font = '100px serif';
-    ctx.fillText('🏮', 100, 100);
-    ctx.fillText('🏮', CANVAS_WIDTH - 100, 100);
-    ctx.fillText('🏮', 100, CANVAS_HEIGHT - 100);
-    ctx.fillText('🏮', CANVAS_WIDTH - 100, CANVAS_HEIGHT - 100);
-    ctx.strokeStyle = 'rgba(255, 215, 0, 0.3)';
+
+    // 绘制金色边框
+    ctx.strokeStyle = 'rgba(255, 215, 0, 0.2)';
     ctx.lineWidth = 10;
     ctx.strokeRect(10, 10, CANVAS_WIDTH - 20, CANVAS_HEIGHT - 20);
     ctx.restore();
