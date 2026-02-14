@@ -37,7 +37,17 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ onGameOver, onScoreUpdate }) =>
   const [isPaused, setIsPaused] = useState(false);
   const [speed, setSpeed] = useState(INITIAL_SPEED);
 
-  const { setHighScore } = useGameStore();
+  const { setHighScore, playerName } = useGameStore();
+
+  const getHeadEmoji = () => {
+    switch (playerName) {
+      case '萌萌': return '👧';
+      case '贝贝': return '👦';
+      case '子鱼': return '🐟';
+      default: return '🐟';
+    }
+  };
+
   const requestRef = useRef<number>();
   const lastUpdateTimeRef = useRef<number>(0);
 
@@ -214,7 +224,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ onGameOver, onScoreUpdate }) =>
 
     // Draw Snake
     snake.forEach((segment, index) => {
-      const emoji = index === 0 ? '🐟' : '🍬'; // Head is a fish for Ziyu, body is candy
+      const emoji = index === 0 ? getHeadEmoji() : '🍬';
       ctx.fillText(emoji, segment.x * GRID_SIZE + GRID_SIZE / 2, segment.y * GRID_SIZE + GRID_SIZE / 2);
     });
 
@@ -234,7 +244,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({ onGameOver, onScoreUpdate }) =>
       ctx.fillText('游戏结束', canvas.width / 2, canvas.height / 2 - 40);
       ctx.font = '24px cursive';
       ctx.fillText(`最终得分: ${score}`, canvas.width / 2, canvas.height / 2 + 20);
-      ctx.fillText('新年快乐, 子鱼!', canvas.width / 2, canvas.height / 2 + 60);
+      ctx.fillText(`新年快乐, ${playerName}!`, canvas.width / 2, canvas.height / 2 + 60);
     }
   }, [snake, food, isPaused, isGameOver, score]);
 

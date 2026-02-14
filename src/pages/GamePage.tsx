@@ -8,7 +8,16 @@ import { useGameStore } from '../store/useGameStore';
 const GamePage: React.FC = () => {
   const navigate = useNavigate();
   const [currentScore, setCurrentScore] = useState(0);
-  const { highScore } = useGameStore();
+  const { highScore, playerName } = useGameStore();
+
+  const getHeadEmoji = () => {
+    switch (playerName) {
+      case '萌萌': return '👧';
+      case '贝贝': return '👦';
+      case '子鱼': return '🐟';
+      default: return '🐟';
+    }
+  };
 
   const handleGameOver = (finalScore: number) => {
     console.log('Game Over! Final Score:', finalScore);
@@ -53,7 +62,7 @@ const GamePage: React.FC = () => {
 
         {/* Footer Info */}
         <div className="text-white/60 text-center font-medium">
-          使用方向键控制 🐟，吃到 🧧 或 🍬 获得分数！
+          使用方向键控制 {getHeadEmoji()}，吃到 🧧 或 🍬 获得分数！
         </div>
       </div>
     </div>
