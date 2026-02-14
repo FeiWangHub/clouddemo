@@ -1,0 +1,55 @@
+# Project Prompt: New Year Snake Game (子鱼的新年贪吃蛇)
+
+Act as an expert Full-Stack Web Developer. Create a complete React-based web application for a "New Year Theme Snake Game" tailored for children.
+
+## 1. Technical Stack
+- **Framework**: React 18 (Vite as build tool)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand
+- **Icons**: Lucide React
+- **Routing**: React Router DOM (v7+)
+- **Utility**: clsx, tailwind-merge
+
+## 2. Project Structure
+Organize the code into the following structure:
+- `src/components/`: Reusable UI components (GameCanvas, NewYearBackground, Empty, etc.)
+- `src/pages/`: Page components (HomePage, GamePage)
+- `src/store/`: Zustand store for game state (useGameStore)
+- `src/hooks/`: Custom hooks (useTheme, etc.)
+- `src/lib/`: Utility functions (utils.ts)
+- `src/assets/`: Static assets
+- `src/App.tsx`: Main routing and layout
+- `src/main.tsx`: Entry point
+- `src/index.css`: Global styles and Tailwind imports
+
+## 3. Design Requirements (New Year Theme)
+- **Color Palette**: Red (#FF4444) and Gold (#FFD700) as primary colors.
+- **Visual Elements**: Lanterns, fireworks, "福" characters, red envelopes (hongbao).
+- **Style**: Cute, cartoonish, and 3D-effect buttons. Use emojis like 🧧 (Food), 🍬 (Snake body), 🪙 (Score).
+- **Responsive**: Desktop-first, fixed 800x600 game area with scaling for smaller screens.
+
+## 4. Feature Specifications
+- **HomePage**: 
+  - Festive background with floating lanterns and firework animations.
+  - Title: "子鱼的新年贪吃蛇" (Zi Yu's New Year Snake).
+  - "Start Game" button shaped like a Red Envelope with hover animations.
+  - Simple graphical game instructions.
+- **GamePage**:
+  - **Canvas-based Snake Game**: Snake body as candy emojis, food as gold coins/red envelopes.
+  - **Scoreboard**: Real-time score and high score with golden 3D typography.
+  - **Controls**: Pause/Resume, Back to Home.
+  - **GameOver Modal**: Festive blessing message, final score, and restart option.
+- **Game Logic**:
+  - Grid-based movement controlled by arrow keys.
+  - Snake grows when eating food; speed increases slightly over time.
+  - Collision detection with walls and self.
+
+## 5. Implementation Instructions
+1. Provide the complete source code for all files mentioned in the structure.
+2. Include `package.json` with all necessary dependencies.
+3. Include configuration files (`tsconfig.json`, `tailwind.config.js`, `postcss.config.js`, `vite.config.ts`).
+4. Ensure the code is production-ready, well-commented, and follows React/TypeScript best practices.
+5. Add festive CSS animations for background elements.
+
+Please output the entire project in a single response, structured by file paths.
